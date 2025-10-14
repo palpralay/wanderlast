@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+ <% layout('/layouts/boilerplate') %> 
+<link rel="stylesheet" href="/stylesheet/show.css" />
+<div class="listing-card-container" style="display: flex; flex-direction: column; align-items: center;box-shadow: none;">
+  <h3>Listing Details :</h3>
+  <div class="listing-card" style="box-shadow: none;">
+    <img src="<%= listing.image.url %>" class="listing-card-img" alt="<%= listing.title %>" />
+    <div class="listing-card-body">
+      <h5 class="listing-card-title"><%= listing.title %></h5>
+      <p class="listing-card-text"><%= listing.description %></p>
+      <p class="listing-card-text"><strong>Price:</strong> &#8377; <%= listing.price.toLocaleString("en-IN") %></p>
+      <p class="listing-card-text"><strong>Location:</strong> <%= listing.location %></p>
+      <p class="listing-card-text"><strong>Country:</strong> <%= listing.country %></p>
+    </div>
+  </div>
+  <a href="/listing/<%= listing._id %>/edit" class="listing-btn listing-btn-primary">Edit Listing</a>
+  <br />
+  <form method="POST" action="/listing/<%=listing._id%>?_method=DELETE" style="padding: 10px 20px; background-color: transparent; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; transition: background 0.3s;box-shadow: none;">
+    <button class="listing-btn listing-btn-danger">Delete listing</button>
+  </form>
+</div>
+</div>
+</body>
+</html>

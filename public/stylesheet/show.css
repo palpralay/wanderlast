@@ -1,0 +1,80 @@
+.listing-card-container h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.listing-card {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.listing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.listing-card-img {
+  width: 100%;
+  display: block;
+  height: 400px;
+  object-fit: cover;
+}
+
+.listing-card-body {
+  padding: 20px;
+}
+
+.listing-card-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.listing-card-text {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.listing-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.listing-btn-primary {
+  background: #007bff;
+  color: white;
+  border: none;
+}
+
+.listing-btn-primary:hover {
+  background: #0056b3;
+}
+
+.listing-btn-danger {
+  background: #dc3545;
+  color: white;
+  border: none;
+}
+
+.listing-btn-danger:hover {
+  background: #a71d2a;
+}
+
+form.listing-form-inline {
+  display: inline;
+}  

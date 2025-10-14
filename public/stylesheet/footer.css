@@ -1,0 +1,40 @@
+footer.main {
+    background-color: #f8f9fa;
+}
+
+footer a:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+footer .fa-facebook {
+    color: #3b5998 !important;
+}
+
+footer .fa-instagram {
+    color: #e4405f !important;
+}
+
+footer .fa-twitter {
+    color: #1da1f2 !important;
+}
+
+footer .fa-youtube {
+    color: #ff0000 !important;
+}
+
+footer h5 {
+    color: #333 !important;
+}
+
+footer .list-unstyled li a {
+    color: #666 !important;
+}
+
+footer .list-unstyled li a:hover {
+    color: #333 !important;
+}
+
+footer hr {
+    border-color: #dee2e6 !important;
+}

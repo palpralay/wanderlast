@@ -1,0 +1,80 @@
+<% layout('/layouts/boilerplate') %>
+
+<body>
+  <h3>Create a New Listing</h3>
+  <form method="POST" action="/listing" novalidate class="needs-validation">
+    <div>
+      <label for="title" class="form-label">Title</label>
+      <input
+        name="listing[title]"
+        placeholder="Enter Title"
+        type="text"
+        class="form-control"
+        required
+      />
+      <div class="invalid-feedback">
+        Please provide a valid title.
+      </div>
+    </div>
+    <div>
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        name="listing[description]"
+        placeholder="Enter Description"
+        class="form-control"
+        required
+      ></textarea>
+
+    </div>
+    <div>
+      <label for="image" class="form-label">Image URL</label>
+      <input
+        name="listing[image][url]"
+        placeholder="Enter Image URL/Link"
+        type="text"
+        class="form-control"
+      />
+    </div>
+    <div class="row-fields">
+      <div>
+        <label for="price" class="form-label">Price</label>
+        <input
+          name="listing[price]"
+          placeholder="Enter Price"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">
+          Please provide a valid price.
+        </div>
+      </div>
+      <div>
+        <label for="country" class="form-label">Country</label>
+        <input
+          name="listing[country]"
+          placeholder="Enter Country"
+          type="text"
+          class="form-control"
+          required
+        />
+        <div class="invalid-feedback">
+          Please provide a valid country.
+        </div>
+      </div>
+    </div>
+    <div>
+      <label for="location" class="form-label">Location</label>
+      <input
+        name="listing[location]"
+        placeholder="Enter Location"
+        type="text"
+        class="form-control"
+        required
+      />
+      <div class="invalid-feedback">
+        Please provide a valid location.
+      </div>
+    </div>
+    <button class="btn btn-primary main-btn">Add</button>
+  </form>
+</body>
