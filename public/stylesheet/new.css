@@ -1,5 +1,4 @@
 
-
 h3 {
     color: #333!important;
     margin: 2rem!important;
@@ -55,7 +54,6 @@ form button {
     padding: 0.75rem;
     font-size: 1.1rem;
     font-weight: 500;
-    margin-top: 1rem;
 }
 
 /* Price and Country on same line */

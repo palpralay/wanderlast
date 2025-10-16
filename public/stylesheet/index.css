@@ -1,3 +1,7 @@
+*, *::before, *::after {
+    /* outline: solid 1px #f006; */
+}
+
 .card {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     cursor: pointer;
