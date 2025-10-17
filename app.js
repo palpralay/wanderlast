@@ -10,7 +10,8 @@ const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync");
 const ExpressError = require("./utils/expressError.js");
 const listing = require("./models/listing.js");
-const listingSchema = require("./schema.js");
+const reviews = require("./models/review.js");
+const { reviewSchema,listingSchema } = require("./schema.js");
 //--------------------------------------------------------------------------------
 
 //-------------------------------connected to mongoDB-----------------------------
@@ -80,7 +81,7 @@ app.get(
   "/listing/:id",
   wrapAsync(async (req, res) => {
     let { id } = req.params;
-    const listing = await Listing.findById(id);
+    const listing = await Listing.findById(id).populate("reviews");
     res.render("listing/show", { listing });
   })
 );
@@ -119,7 +120,30 @@ app.delete(
     res.redirect("/listing");
   })
 );
+//-------Review validation middleware-------------------------------------------
+const validateReview = (req, res, next) => {
+  let { error } = reviewSchema.validate(req.body);
+  if (error) {
+    let errMsg = error.details.map((el) => el.message).join(",");
+    throw new ExpressError(404, errMsg);
+  } else {
+    next();
+  }
+};
+//-----------------------------------------------------------------------------
+
+//-----Reviews route to add a review-------------------------------------------
+app.post("/listing/:id/reviews", validateReview, wrapAsync(async (req, res) => {
+  let listing = await Listing.findById(req.params.id);
+  let newReview = new reviews(req.body.review);
+  listing.reviews.push(newReview);
+  await newReview.save();
+  await listing.save();
+  res.redirect(`/listing/${listing._id}`);
+  console.log('New Review Added:', newReview);
+}));
 //--------------------------------------------------------------------------------
+
 
 //-----------------------------handling 404 error---------------------------------
 app.use((req, res, next) => {
@@ -138,3 +162,4 @@ app.use((err, req, res, next) => {
 app.listen(8080, () => {
   console.log("Server is running on http://localhost:8080");
 });
+//--------------------------------------------------------------------------------
